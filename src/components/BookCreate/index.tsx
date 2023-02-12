@@ -1,7 +1,7 @@
 import React from "react";
 
 interface BookCreateProps {
-    onCreate: (name: string) => void;
+    onCreate: (name: string) => void
 }
 function BookCreate({ onCreate }: BookCreateProps) {
 
