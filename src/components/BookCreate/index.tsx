@@ -1,5 +1,4 @@
 import React from "react";
-import './index.css'
 
 interface BookCreateProps {
     onCreate: (name: string) => void;
@@ -15,14 +14,16 @@ function BookCreate({ onCreate }: BookCreateProps) {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         onCreate(title)
+        setTitle('')
     }
 
     return (
-      <div className="BookCreate">
-          <form className="input-form" onSubmit={handleSubmit}>
+      <div className="book-create">
+          <h3>Add a Book</h3>
+          <form onSubmit={handleSubmit}>
               <label>Input Book's Title</label>
-              <input onInput={onInputHandle}/>
-              <button>OK</button>
+              <input className="input" onInput={onInputHandle} value={title}/>
+              <button className="button">Create!</button>
           </form>
       </div>
     )
