@@ -7,7 +7,7 @@ function BookCreate({ onCreate }: BookCreateProps) {
 
     const { useState } = React
     const [title, setTitle] = useState('')
-    function onInputHandle(e: React.FormEvent<HTMLInputElement>) {
+    function handleInput(e: React.FormEvent<HTMLInputElement>) {
         setTitle(e.currentTarget.value)
     }
 
@@ -22,7 +22,7 @@ function BookCreate({ onCreate }: BookCreateProps) {
           <h3>Add a Book</h3>
           <form onSubmit={handleSubmit}>
               <label>Input Book's Title</label>
-              <input className="input" onInput={onInputHandle} value={title}/>
+              <input className="input" onInput={handleInput} value={title}/>
               <button className="button">Create!</button>
           </form>
       </div>
