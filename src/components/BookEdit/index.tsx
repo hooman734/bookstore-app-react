@@ -4,9 +4,8 @@ import Book from "../../classes/Book";
 interface BookEditProps {
     book: Book
     onEdit: (id: string, newTitle: string) => void
-    onChangeStateOfEdit: () => void
 }
-function BookEdit({ book, onEdit, onChangeStateOfEdit }: BookEditProps) {
+function BookEdit({ book, onEdit }: BookEditProps) {
     const [title, setTitle] = useState(book.Title)
     function handleInput(e: React.FormEvent<HTMLInputElement>) {
         setTitle(e.currentTarget.value)
@@ -14,7 +13,6 @@ function BookEdit({ book, onEdit, onChangeStateOfEdit }: BookEditProps) {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         onEdit(book.Id, title)
-        onChangeStateOfEdit()
     }
     return (
         <Fragment>

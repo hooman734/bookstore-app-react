@@ -10,8 +10,12 @@ interface BookShowProps {
 function BookShow({ book, onDelete, onEdit }: BookShowProps) {
 	const [showEdit, setShowEdit] = useState(false)
 	let content = <div>Title: {book.Title}</div>
+	function handleOnEdit(id: string, newTitle: string) {
+		onEdit(id, newTitle)
+		setShowEdit(false)
+	}
 	if(showEdit) {
-		content = <BookEdit onEdit={onEdit} book={book} onChangeStateOfEdit={() => setShowEdit(!showEdit)}/>
+		content = <BookEdit onEdit={handleOnEdit} book={book} />
 	}
 	return (
 			<div className="book-show">
