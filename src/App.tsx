@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="app">
-      <h6 className="title">Number of Books: {books.length}</h6>
+      <h1>Reading List - {books.length}</h1>
       <BookList bookList={books} onDeleteOneItem={deleteBookById} onEditOneItem={editBookById}/>
       <BookCreate onCreate={createBook}/>
     </div>

@@ -1,5 +1,5 @@
 import Book from "../../classes/Book";
-import {useState} from "react";
+import {Fragment, useState} from "react";
 import BookEdit from "../BookEdit";
 
 interface BookShowProps {
@@ -9,7 +9,13 @@ interface BookShowProps {
 }
 function BookShow({ book, onDelete, onEdit }: BookShowProps) {
 	const [showEdit, setShowEdit] = useState(false)
-	let content = <div>Title: {book.Title}</div>
+	const imageSource = `https://picsum.photos/seed/${book.Id}/400/250`
+	let content = (
+		<Fragment>
+			<div>Title: {book.Title}</div>
+			<img alt="image of the book" src={imageSource}></img>
+		</Fragment>
+	)
 	function handleOnEdit(id: string, newTitle: string) {
 		onEdit(id, newTitle)
 		setShowEdit(false)
