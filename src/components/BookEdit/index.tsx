@@ -1,18 +1,19 @@
 import React, {Fragment, useState} from "react";
+import Book from "../../classes/Book";
 
 interface BookEditProps {
-    id: string
+    book: Book
     onEdit: (id: string, newTitle: string) => void
     onChangeStateOfEdit: () => void
 }
-function BookEdit({ id, onEdit, onChangeStateOfEdit }: BookEditProps) {
-    const [title, setTitle] = useState('')
+function BookEdit({ book, onEdit, onChangeStateOfEdit }: BookEditProps) {
+    const [title, setTitle] = useState(book.Title)
     function handleInput(e: React.FormEvent<HTMLInputElement>) {
         setTitle(e.currentTarget.value)
     }
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        onEdit(id, title)
+        onEdit(book.Id, title)
         onChangeStateOfEdit()
     }
     return (

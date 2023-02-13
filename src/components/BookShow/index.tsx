@@ -11,7 +11,7 @@ function BookShow({ book, onDelete, onEdit }: BookShowProps) {
 	const [showEdit, setShowEdit] = useState(false)
 	let content = <div>Title: {book.Title}</div>
 	if(showEdit) {
-		content = <BookEdit onEdit={onEdit} id={book.Id} onChangeStateOfEdit={() => setShowEdit(!showEdit)}/>
+		content = <BookEdit onEdit={onEdit} book={book} onChangeStateOfEdit={() => setShowEdit(!showEdit)}/>
 	}
 	return (
 			<div className="book-show">
